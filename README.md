@@ -7,8 +7,8 @@ Simple app featuring a search bar that lets you type in a Pokemon into the searc
 - Pokemon Display in Card Form
 
 ## Technologies
-[React JS](https://react.dev/)
-[Vite](https://vitejs.dev)
-[Tailwind CSS](https://tailwindcss.com/)
-[Tailwind Nord](https://github.com/crumb1e/tailwind-nord)
-[PokeAPI](https://pokeapi.co/)
+- [React JS](https://react.dev/)
+- [Vite](https://vitejs.dev)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Tailwind Nord](https://github.com/crumb1e/tailwind-nord)
+- [PokeAPI](https://pokeapi.co/)
