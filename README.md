@@ -1,8 +1,14 @@
-# React + Vite
+# React Pokedex WIP
+Simple app featuring a search bar that lets you type in a Pokemon into the search bar, and have information returned to you.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Planned Features
+- Search Bar
+- Integration with PokeAPI
+- Pokemon Display in Card Form
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
+[React JS](https://react.dev/)
+[Vite](https://vitejs.dev)
+[Tailwind CSS](https://tailwindcss.com/)
+[Tailwind Nord](https://github.com/crumb1e/tailwind-nord)
+[PokeAPI](https://pokeapi.co/)
