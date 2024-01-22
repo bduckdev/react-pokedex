@@ -17,14 +17,13 @@ function Pokemon({ name }) {
     const [pokemon, setPokemon] = useState(pokemonData.pikachu);
 
     useEffect(() => {
-        try {
+        if(name!== undefined) {
             fetchPokemon(name).then((data) => {
                 console.log(data);
                 return setPokemon(data);
             });
-        } catch {
-            return setPokemon(pokemonData.pikachu);
         }
+            return setPokemon(pokemonData.pikachu);
     }, [name]);
 
     return (
