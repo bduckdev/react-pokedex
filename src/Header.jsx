@@ -5,7 +5,7 @@ function Header() {
                 React Pokedex
             </h1>
             <a
-                className="font-semibold hover:underline hover:text-nord-3 text-nord4 text-l"
+                className="font-semibold underline-offset-2 underline hover:text-nord-3 text-nord4 text-l"
                 href="https://github.com/bduckdev/react-pokedex"
             >
                 GitHub Project

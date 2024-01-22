@@ -1,16 +1,33 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./Header.jsx";
 import Pokemon from "./Pokemon.jsx";
 
+function getRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 25);
+    if (randomNumber < 1500 && randomNumber !== 0) {
+        return randomNumber;
+    } else {
+        getRandomNumber();
+    }
+}
 function App() {
+    const [name, setName] = useState(getRandomNumber());
+
     return (
         <>
             <Header />
-            <Pokemon
-                name="Chimchar"
-                image="https://archives.bulbagarden.net/media/upload/thumb/9/91/0390Chimchar.png/250px-0390Chimchar.png"
-                description="It is very agile. Before going to sleep, it extinguishes the flame on its tail to prevent fires."
-            />
+            <nav className="flex justify-center my-8">
+                <button
+                    className="bg-nord4 rounded-full px-3"
+                    onClick={() => {
+                        setName(getRandomNumber);
+                    }}
+                >
+                    Random Pokemon
+                </button>
+            </nav>
+            <Pokemon name={name} />
         </>
     );
 }
