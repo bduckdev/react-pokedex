@@ -4,7 +4,7 @@ import Header from "./Header.jsx";
 import Pokemon from "./Pokemon.jsx";
 
 function getRandomNumber() {
-    const randomNumber = Math.floor(Math.random() * 25);
+    const randomNumber = Math.floor(Math.random() * 100);
     if (randomNumber < 1500 && randomNumber !== 0) {
         return randomNumber;
     } else {

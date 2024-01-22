@@ -3,16 +3,13 @@ import "./types.css";
 function PokemonTypes({ pokemon }) {
         return (
             <>
-                <h3 className="capitalize text-xl text-nord4 font-bold">
-                    {pokemon.types.length === 1
-                        ? "Type: "
-                        : "Types: "}
+                <div className="capitalize flex gap-1 text-m text-nord4 font-semibold">
                     {pokemon.types.map((type) => {
                         return (
                 <span key={type.slot} className={`type ${type.type.name}`}></span>
                         );
                     })}
-                </h3>
+                </div>
             </>
         );
     }

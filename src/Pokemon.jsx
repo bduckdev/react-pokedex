@@ -17,26 +17,26 @@ function Pokemon({ name }) {
     const [pokemon, setPokemon] = useState(pokemonData.pikachu);
 
     useEffect(() => {
-        if(name!== undefined) {
+        if (name !== undefined) {
             fetchPokemon(name).then((data) => {
                 console.log(data);
                 return setPokemon(data);
             });
         }
-            return setPokemon(pokemonData.pikachu);
+        return setPokemon(pokemonData.pikachu);
     }, [name]);
 
     return (
         <>
-        <section className="bg-nord3 mx-auto w-1/2 flex items-center rounded-lg justify-evenly py-10">
-            <div className="w-1/2 pl-5 flex flex-col justify-between">
-                <h2 className="capitalize text-3xl pb-5 text-nord5 font-bold">
-                    {pokemon.name}
-                </h2>
-                <PokemonTypes pokemon={pokemon} />
-            </div>
-            <Sprite pokemon={pokemon} />
-        </section>
+            <section className="bg-nord3 mx-auto w-1/3 flex items-center rounded-lg justify-evenly py-5">
+                <div className="w-1/2 pl-5 flex flex-col justify-between">
+                    <h2 className="capitalize text-3xl pb-5 text-nord5 font-bold">
+                        {pokemon.name}
+                    </h2>
+                    <PokemonTypes pokemon={pokemon} />
+                </div>
+                <Sprite pokemon={pokemon} />
+            </section>
             <Stats pokemon={pokemon} />
         </>
     );
