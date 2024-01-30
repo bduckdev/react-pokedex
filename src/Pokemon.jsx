@@ -1,44 +1,40 @@
 import { useState, useEffect } from "react";
 import Sprite from "./Sprite.jsx";
-import PokemonTypes from "./PokemonTypes.jsx";
+import PokemonInfo from "./PokemonInfo.jsx";
 import Stats from "./Stats.jsx";
 import * as pokemonData from "./pokemonData.js";
 
 async function fetchPokemon(name) {
-    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then((res) => {
-        if (res.ok) {
-            return res.json();
-        }
-        return alert(`Oops! Error in promise: ${res.status}`);
-    });
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else if (res.status === 404) {
+      return alert(`Pokemon not found! Try a different name.`);
+    }
+    return console.error(`Oops! Error ${res.status}. Pokemon not found!`);
+  });
 }
 
 function Pokemon({ name }) {
-    const [pokemon, setPokemon] = useState(pokemonData.pikachu);
+  const [pokemon, setPokemon] = useState(pokemonData.pikachu);
 
-    useEffect(() => {
-        if (name !== undefined) {
-            fetchPokemon(name).then((data) => {
-                console.log(data);
-                return setPokemon(data);
-            });
-        }
+  useEffect(() => {
+    fetchPokemon(name).then((data) => {
+      if (data.id === undefined) {
         return setPokemon(pokemonData.pikachu);
-    }, [name]);
+      }
+      return setPokemon(data);
+    });
+  }, [name]);
 
-    return (
-        <>
-            <section className="bg-nord3 mx-auto w-1/3 flex items-center rounded-lg justify-evenly py-5">
-                <div className="w-1/2 pl-5 flex flex-col justify-between">
-                    <h2 className="capitalize text-3xl pb-5 text-nord5 font-bold">
-                        {pokemon.name}
-                    </h2>
-                    <PokemonTypes pokemon={pokemon} />
-                </div>
-                <Sprite pokemon={pokemon} />
-            </section>
-            <Stats pokemon={pokemon} />
-        </>
-    );
+  return (
+    <>
+      <section className="bg-nord3 mx-auto w-2/3 flex lg:flex-row flex-col items-center rounded-lg justify-center py-5">
+        <PokemonInfo pokemon={pokemon} />
+        <Sprite pokemon={pokemon} />
+      </section>
+      <Stats pokemon={pokemon} />
+    </>
+  );
 }
 export default Pokemon;
